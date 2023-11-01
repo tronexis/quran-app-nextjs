@@ -2,7 +2,7 @@ import { makeUrl } from './api';
 import { Juz } from './types/Juz';
 
 export const getJuzs = async (
-  lang = 'id'
+  lang = "en"
 ): Promise<{
   juzs: Juz[];
 }> => {
