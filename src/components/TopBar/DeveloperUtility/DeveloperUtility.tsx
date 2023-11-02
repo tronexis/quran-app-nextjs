@@ -8,10 +8,13 @@ import AutoScroll from './AutoScroll';
 import { FontAdjustment, FontSizeAdjustment } from './FontAdjustment';
 import Transliteration from './Transliteration';
 import TranslationOption from './TranslationOption';
-import dynamic from 'next/dynamic';
-import LanguageAdjustment from "./LanguageAdjustment";
+import dynamic from "next/dynamic";
 
 const ThemeAdjustment = dynamic(() => import("./ThemeAdjustment"), {
+  ssr: false,
+});
+
+const LanguageAdjustment = dynamic(() => import("./LanguageAdjustment"), {
   ssr: false,
 });
 
