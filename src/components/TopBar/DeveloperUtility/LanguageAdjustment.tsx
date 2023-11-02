@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { ChevronIcon } from "../../icons";
 import AdjustmentWrapper from "./AdjustmentWrapper";
 import OptionList from "./OptionList";
+import useSettings from "@stores/settingsStore";
 
 const LanguageAdjustment = () => {
   const [isExpanded, setExpanded] = useState(false);
@@ -15,11 +16,15 @@ const LanguageAdjustment = () => {
     id: "Indonesia",
     en: "English",
   };
-  const [langId, setLang] = useState(null);
 
-  function setLocale(lang) {
+  const { language, setLanguage } = useSettings((state) => ({
+    language: state.language,
+    setLanguage: state.setLanguage,
+  }));
+
+  function setLocale(lang: any) {
     // router.push(router.asPath, router.asPath, { locale: lang, scroll: false });
-    setLang(lang);
+    setLanguage(lang);
   }
 
   useEffect(() => {
@@ -34,7 +39,7 @@ const LanguageAdjustment = () => {
         onClick={() => setExpanded(!isExpanded)}
         className="text-center py-2 px-2 group text-black dark:text-slate-100 bg-gray-100 dark:bg-slate-500 rounded w-32 flex justify-between relative cursor-pointer"
       >
-        <span className="font-bold text-sm">{lang[langId]}</span>
+        <span className="font-bold text-sm">{lang[language]}</span>
         <ChevronIcon
           className={classNames("h-5 transform transition-transform", {
             "rotate-180": isExpanded,
