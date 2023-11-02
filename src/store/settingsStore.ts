@@ -60,6 +60,7 @@ const useSettings = create<SettingsStore>()(
       name: "settings", // name of the item in the storage (must be unique)
       partialize: (state) => ({
         theme: state.theme,
+        language: state.language,
       }),
       getStorage: () => localStorage,
     }
