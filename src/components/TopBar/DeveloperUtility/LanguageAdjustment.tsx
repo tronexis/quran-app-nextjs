@@ -9,7 +9,7 @@ import useSettings from "@stores/settingsStore";
 const LanguageAdjustment = () => {
   const [isExpanded, setExpanded] = useState(false);
 
-  const router = useRouter();
+  // const router = useRouter();
   const pathname = usePathname();
 
   const lang = {
